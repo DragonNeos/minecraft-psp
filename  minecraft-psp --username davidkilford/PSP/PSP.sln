@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PSP", "PSP.vcxproj", "{BFAA608D-8613-4AC7-9AC3-324C4D3FC357}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFAA608D-8613-4AC7-9AC3-324C4D3FC357}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BFAA608D-8613-4AC7-9AC3-324C4D3FC357}.Debug|Win32.Build.0 = Debug|Win32
+		{BFAA608D-8613-4AC7-9AC3-324C4D3FC357}.Release|Win32.ActiveCfg = Release|Win32
+		{BFAA608D-8613-4AC7-9AC3-324C4D3FC357}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

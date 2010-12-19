@@ -1,0 +1,20 @@
+//Structure of Savegame.
+
+//Header:
+Last Played:
+World Name:
+Player Position:
+Player Health,
+Bounds of the world from where the player is:
+
+//Inventory Contents
+InventoryID, itemID, durability, stack amount, ...
+
+//World
+Line Header, position, direction, block, block...
+
+//Enemys
+ID, Position, Health, ...
+
+//Dropped Items
+ID, Durability, Position
