@@ -20,8 +20,3 @@ Dynamic Memory Controller - Now this should be incorporated into the Game Engine
 Controller - Even though the controller can easily be learned it would be good practice to develop a unique API/Library for this because it is very untidy how the controls are already handled.
 
 Texturizer - Now I seriously think we need to think this carefully as textures will be taking up a lot of memory and we cannot afford to populate most of the memory with texture bitmaps. So textures and how they're handled should be studied carefully and understood so deleting and managing them in memory can be better handled.
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Introduction, Details
-  * Automatic links to other wiki pages
