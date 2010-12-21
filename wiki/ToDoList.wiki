@@ -5,9 +5,12 @@
 To start using C++ offers so much flexibility we can't reach it's full potential use as of now, however with our previous coding history the few things we have learned can be applied to C++ with basically using the exact same coding structure we did in Java coding although the efficiency won't be to the highest of possibilities it is still much more efficient than Java due to no Virtual Machine interpreting the code on the fly.
 
 Now a few things I have noticed with PSPGL are:
-  - It is very easy to understand and syntax is identical to what we previously have learned minus the GL11 prefix.
-  - There is in a sense some more flexibility with PSPGL as there was with LWJGL with the main and immediate thing being that control of the buffers is much easier to learn due to no singleton class controlling the 'Display'
-  - PSPGL also comes with a convenient auto-looping function that loops main but this is just for testing purposes as main usually will not hold the game code or running game code so it is good to note this.
+  
+- It is very easy to understand and syntax is identical to what we previously have learned minus the GL11 prefix.
+  
+- There is in a sense some more flexibility with PSPGL as there was with LWJGL with the main and immediate thing being that control of the buffers is much easier to learn due to no singleton class controlling the 'Display'
+  
+- PSPGL also comes with a convenient auto-looping function that loops main but this is just for testing purposes as main usually will not hold the game code or running game code so it is good to note this.
 
 = Details =
 
