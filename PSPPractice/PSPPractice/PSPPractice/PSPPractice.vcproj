@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="9.00"
+	Name="PSPPractice"
+	ProjectGUID="{09A8363A-2065-40FB-A4A5-4D2CC62C4146}"
+	Keyword="MakeFileProj"
+	TargetFrameworkVersion="196613"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="vsmake &amp;&amp; copy EBOOT.PBP G:\PSP\GAME\PSPGL"
+				ReBuildCommandLine="vsmake clean &amp;&amp; vsmake copy EBOOT.PBP G:\PSP\GAME\PSPGL"
+				CleanCommandLine="vsmake clean"
+				Output="EBOOT.PBP"
+				PreprocessorDefinitions="WIN32;_DEBUG"
+				IncludeSearchPath="C:\pspsdk\psp\sdk\include"
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="vsmake"
+				ReBuildCommandLine="vsmake clean &amp;&amp; vsmake"
+				CleanCommandLine="vsmake clean"
+				Output="EBOOT.PBP"
+				PreprocessorDefinitions="WIN32;NDEBUG"
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="Source Files"
+			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			>
+			<File
+				RelativePath=".\Controller.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Cube.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Display.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Main.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\psp-setup.c"
+				>
+			</File>
+			<File
+				RelativePath=".\Triangle.cpp"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Header Files"
+			Filter="h;hpp;hxx;hm;inl;inc;xsd"
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			>
+			<File
+				RelativePath=".\Controller.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Cube.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Display.h"
+				>
+			</File>
+			<File
+				RelativePath=".\GLLib.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Triangle.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Resource Files"
+			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
+			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
+			>
+		</Filter>
+		<File
+			RelativePath=".\Makefile"
+			>
+		</File>
+		<File
+			RelativePath=".\readme.txt"
+			>
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>
