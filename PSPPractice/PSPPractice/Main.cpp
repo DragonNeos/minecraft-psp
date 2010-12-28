@@ -1,3 +1,10 @@
+// Author: Mouhamad Abdallah
+// Date: 29 December 2010
+// Modifications: All modifications are documented via Repository on google-code page
+//
+// -- THIS IS STILL PRACTICE CODE USED TO PRACTICE THE IMPLEMENTATION OF FEATURES FOR MINECRAFT-PSP --
+// 
+
 #include <stdlib.h> // Header file for standard library
 #include <pspctrl.h> // Header file for the PSP's control library
 #include "GLLib.h" // Header File carrying all OpenGL32 and GLUT headers
@@ -16,7 +23,7 @@ int main(int argc, char **argv)
 	glutInit(&argc, argv); // The only method call that as of yet needs the command line arguments to initialise GLUT
 
 	float x = 0,y = 0, z = 0, rotation = 0, worldR = 0; //Position variables of the cube
-	worldSize = 5; //Size of the WorldArray in terms of amount of blocks per Dimension
+	worldSize = 6; //Size of the WorldArray in terms of amount of blocks per Dimension
 	blockSize = 4; //Size of blocks dimension(x,y,z)
 	
 	Display *display = new Display(); //Instantiate the graphics class via dynamic memory allocation
@@ -46,6 +53,7 @@ int main(int argc, char **argv)
 		{
 			for(int k = 0, z = 0; k < worldSize; k ++, z+=blockSize)
 			{
+				world[i][j][k].createBlock(i); //Create the block based off it's type ID
 				world[i][j][k].initialise(blockSize, blockSize, blockSize); //Instantiate a new object and assign it via dynamic memory allocation
 				world[i][j][k].position->set(x, y, z); //Position the cubes apart from each other in order of theyre relative co-ordinates in the array
 			}
@@ -107,7 +115,7 @@ int main(int argc, char **argv)
 			{
 				for(int k = 0; k < worldSize; k ++)
 				{
-					world[i][j][k].draw(rotation, 0, 1, 0);// Draw the 'World' pointers array of cubes with rotation applied
+					world[i][j][k].draw(rotation, 0, 1, 0);// Draw the 'World' array of cubes with rotation applied
 				}
 			}
 		}

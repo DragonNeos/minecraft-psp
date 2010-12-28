@@ -1,3 +1,7 @@
+// Author: Mouhamad Abdallah
+// Date: 29 December 2010
+// Modifications: All modifications are documented via Repository on google-code page
+
 #include "Texture.h"
 #include "GLLib.h"
 #include <stdio.h>      // Header file for standard file i/o.
