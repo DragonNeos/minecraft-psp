@@ -72,6 +72,10 @@
 				RelativePath=".\psp-setup.c"
 				>
 			</File>
+			<File
+				RelativePath=".\Texture.cpp"
+				>
+			</File>
 			<Filter
 				Name="Math"
 				>
@@ -116,6 +120,10 @@
 			>
 			<File
 				RelativePath=".\GLLib.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Texture.h"
 				>
 			</File>
 			<Filter

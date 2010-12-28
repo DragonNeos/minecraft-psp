@@ -5,35 +5,38 @@
 #include "Triangle.h" // Header file for the 'Triangle' class
 #include "Cube.h" // Header file for the 'Cube' class
 #include "Controller.h" // Header file for the 'Controller' class
+#include "Texture.h"
 
 int worldSize, blockSize;
-Cube ****world;
+Cube ***world;
+Texture *worldTexture;
 
 int main(int argc, char **argv)
 {
 	glutInit(&argc, argv); // The only method call that as of yet needs the command line arguments to initialise GLUT
 
 	float x = 0,y = 0, z = 0, rotation = 0, worldR = 0; //Position variables of the cube
-	worldSize = 4; //Size of the WorldArray in terms of amount of blocks per Dimension
-	blockSize = 8; //Size of blocks dimension(x,y,z)
+	worldSize = 5; //Size of the WorldArray in terms of amount of blocks per Dimension
+	blockSize = 4; //Size of blocks dimension(x,y,z)
 	
 	Display *display = new Display(); //Instantiate the graphics class via dynamic memory allocation
 	Controller *controller = new Controller(); //Instantiate the controls class via dynamic memory allocation
 
 	display->initialise(); //Initialises all OpenGL requirements and creates a viewport
-
+	glEnable(GL_TEXTURE_2D);
+	worldTexture = new Texture();
+	worldTexture->loadTexture("Data/texture.bmp");
+	
 	//initialising a multi-dimensional array via dynamic memory allocation using pointers
-	world = new Cube***[1]; //Initialise a dummy dimension which will simply act as a pointer to the 3D array
-	for(int i = 0; i < worldSize; i++)
+	//world = new Cube***[1]; //Initialise a dummy dimension which will simply act as a pointer to the 3D array
+
+	world = new Cube**[worldSize]; //Initialise the 1st Dimension
+	for(int j = 0; j < worldSize; j++)
 	{
-		world[i] = new Cube**[worldSize]; //Initialise the 1st Dimension
-		for(int j = 0; j < worldSize; j++)
+		world[j] = new Cube*[worldSize]; //Initialise the 2nd Dimension
+		for(int k = 0; k < worldSize; k ++)
 		{
-			world[i][j] = new Cube*[worldSize]; //Initialise the 2nd Dimension
-			for(int k = 0; k < worldSize; k ++)
-			{
-				world[i][j][k] = new Cube[worldSize]; //Initialise the 3rd Dimension
-			}
+			world[j][k] = new Cube[worldSize]; //Initialise the 3rd Dimension
 		}
 	}
 
@@ -43,8 +46,8 @@ int main(int argc, char **argv)
 		{
 			for(int k = 0, z = 0; k < worldSize; k ++, z+=blockSize)
 			{
-				world[i][j][k] = new Cube(blockSize, blockSize, blockSize); //Instantiate a new object and assign it via dynamic memory allocation
-				world[i][j][k]->position->set(x, y, z); //Position the cubes apart from each other in order of theyre relative co-ordinates in the array
+				world[i][j][k].initialise(blockSize, blockSize, blockSize); //Instantiate a new object and assign it via dynamic memory allocation
+				world[i][j][k].position->set(x, y, z); //Position the cubes apart from each other in order of theyre relative co-ordinates in the array
 			}
 		}
 	}
@@ -95,13 +98,14 @@ int main(int argc, char **argv)
 
 		display->translate(x,y,z);//Move the 'world' around in the view
 		display->rotate(worldR,0,1,0);//rotate the world around to see around it
+		worldTexture->bindTexture();
 		for(int i = 0; i < worldSize; i++)
 		{
 			for(int j = 0; j < worldSize; j++)
 			{
 				for(int k = 0; k < worldSize; k ++)
 				{
-					world[i][j][k]->draw(rotation, 0, 1, 0);// Draw the 'World' pointers array of cubes with rotation applied
+					world[i][j][k].draw(rotation, 0, 1, 0);// Draw the 'World' pointers array of cubes with rotation applied
 				}
 			}
 		}
