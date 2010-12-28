@@ -1,3 +1,7 @@
+// Author: Mouhamad Abdallah
+// Date: 29 December 2010
+// Modifications: All modifications are documented via Repository on google-code page
+
 #ifndef DISPLAY_H
 #define DISPLAY_H
 

@@ -1,3 +1,7 @@
+// Author: Mouhamad Abdallah
+// Date: 29 December 2010
+// Modifications: All modifications are documented via Repository on google-code page
+
 #include "Controller.h" // Header File of 'Controller' Class
 #include <pspctrl.h> // Header File of PSP controls Library
 

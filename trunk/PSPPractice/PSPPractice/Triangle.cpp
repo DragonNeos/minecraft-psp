@@ -1,3 +1,7 @@
+// Author: Mouhamad Abdallah
+// Date: 29 December 2010
+// Modifications: All modifications are documented via Repository on google-code page
+
 #include <stdlib.h> // Header File for the standard library
 #include "GLLib.h" //Header file for OpenGL library 
 #include "Triangle.h" //Header File for the 'Triangle' class
