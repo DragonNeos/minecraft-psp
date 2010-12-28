@@ -23,12 +23,12 @@ int main(int argc, char **argv)
 	Controller *controller = new Controller(); //Instantiate the controls class via dynamic memory allocation
 
 	display->initialise(); //Initialises all OpenGL requirements and creates a viewport
-	glEnable(GL_TEXTURE_2D);
-	worldTexture = new Texture();
-	worldTexture->loadTexture("Data/texture.bmp");
+	glEnable(GL_TEXTURE_2D); //Enable Texturing
+	worldTexture = new Texture(); //Instantiate Textures of the world
+	worldTexture->loadTexture("Data/texture.bmp"); ////load the texture image used in the world
 	
-	//initialising a multi-dimensional array via dynamic memory allocation using pointers
-	//world = new Cube***[1]; //Initialise a dummy dimension which will simply act as a pointer to the 3D array
+	//initialising a multi-dimensional array via dynamic memory allocation using pointers(Not used currently)
+	//world = new Cube***[1]; //Initialise a dummy dimension which will simply act as a pointer to the 3D array(Not used currently)
 
 	world = new Cube**[worldSize]; //Initialise the 1st Dimension
 	for(int j = 0; j < worldSize; j++)
@@ -52,6 +52,8 @@ int main(int argc, char **argv)
 		}
 	}
 
+	worldTexture->bindTexture(); //Bind all the world's textures to every object after this line (Binding is no longer repeated and no overhead occurs)
+
 	while(1)
 	{
 		controller->updateController(); //Update the keystates of the control pad
@@ -59,7 +61,7 @@ int main(int argc, char **argv)
 		display->clearBuffers(); //Clear screen and depth buffer
 		display->resetOrigin(); //Reset the co-ordinate origin
 
-		display->translate(0,0,-150); //Push the scene inside of the viewport frustum
+		display->translate(0,0,-50); //Push the scene inside of the viewport frustum
 
 		if(controller->isKeyDown(PSP_CTRL_LEFT)) //Check for left press to move the world
 		{
@@ -98,7 +100,7 @@ int main(int argc, char **argv)
 
 		display->translate(x,y,z);//Move the 'world' around in the view
 		display->rotate(worldR,0,1,0);//rotate the world around to see around it
-		worldTexture->bindTexture();
+		
 		for(int i = 0; i < worldSize; i++)
 		{
 			for(int j = 0; j < worldSize; j++)
