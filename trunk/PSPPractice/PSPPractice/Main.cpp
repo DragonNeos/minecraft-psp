@@ -31,9 +31,11 @@ int main(int argc, char **argv)
 
 	display->initialise(); //Initialises all OpenGL requirements and creates a viewport
 	glEnable(GL_TEXTURE_2D); //Enable Texturing
+	printf("Texture has been created\n");
 	worldTexture = new Texture(); //Instantiate Textures of the world
-	worldTexture->loadTexture("Data/texture.bmp"); ////load the texture image used in the world
-	
+	printf("Texture has been instantiated\n");
+	worldTexture->loadTexture("Data/texture.tga"); ////load the texture image used in the world
+	printf("Texture has been loaded\n");
 	//initialising a multi-dimensional array via dynamic memory allocation using pointers(Not used currently)
 	//world = new Cube***[1]; //Initialise a dummy dimension which will simply act as a pointer to the 3D array(Not used currently)
 
@@ -99,6 +101,7 @@ int main(int argc, char **argv)
 
 		if(controller->isKeyDown(PSP_CTRL_CROSS)) //Check for 'x' press to rotate the individual blocks
 		{
+			printf("'X' pressed\n");
 			rotation += 4;
 		}
 		if(controller->isKeyDown(PSP_CTRL_CIRCLE)) //Check for circle press to rotate world
