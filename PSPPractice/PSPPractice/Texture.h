@@ -8,27 +8,19 @@
 #include <stdio.h>      // Header file for standard file i/o.
 #include <stdlib.h>     // Header file for malloc/free.
 #include "GLLib.h"
-
-/* Image type - contains height, width, and data */
-struct Image {
-    unsigned long sizeX;
-    unsigned long sizeY;
-    char *data;
-};
-typedef struct Image Image;
+#include "CTexture.h"
 
 class Texture
 {
 	public:
-		//Image *image;
+		CTexture *texture;
 		Texture();
-		void loadTexture(char *fileName);
+		void loadTexture(char *filename);
 		void bindTexture();
 
 	private:
+		void initialiseTexture();
 		GLuint id;
-		int loadImage(char *fileName, Image *image);
-		void initialiseTexture(Image *image);
 };
 
 #endif

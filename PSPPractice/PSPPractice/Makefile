@@ -1,5 +1,5 @@
 TARGET = PSPGL-Moehammered
-OBJS = Main.o Display.o Triangle.o Cube.o Controller.o Vector.o Texture.o
+OBJS = Main.o Display.o Triangle.o Cube.o Controller.o Vector.o Texture.o CTexture.o
 
 CFLAGS = -O2 -G0 -Wall
 CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
