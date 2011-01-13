@@ -14,9 +14,9 @@ LDFLAGS += -DMODULE_NAME="lesson1" psp-setup.c
 
 
 EXTRA_TARGETS = EBOOT.PBP
-PSP_EBOOT_TITLE = PSPGL_by_Moehammered
-# PSP_EBOOT_ICON = hero.png
-# PSP_EBOOT_PIC1 = bg.png
+PSP_EBOOT_TITLE = MineCraft-PSP_by_Mouhamad&David
+# PSP_EBOOT_ICON = ICON0.png
+# PSP_EBOOT_PIC1 = PIC1.png
 
 
 PSPSDK=$(shell psp-config --pspsdk-path)

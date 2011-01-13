@@ -72,10 +72,6 @@
 				RelativePath=".\psp-setup.c"
 				>
 			</File>
-			<File
-				RelativePath=".\Texture.cpp"
-				>
-			</File>
 			<Filter
 				Name="Math"
 				>
@@ -112,20 +108,20 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="Graphics"
+				>
+				<File
+					RelativePath=".\Texture.cpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath=".\GLLib.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Texture.h"
-				>
-			</File>
 			<Filter
 				Name="Math"
 				>
@@ -162,6 +158,18 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="Graphics"
+				>
+				<File
+					RelativePath=".\GLLib.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Texture.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Resource Files"
@@ -170,7 +178,15 @@
 			>
 		</Filter>
 		<File
+			RelativePath=".\ICON0.png"
+			>
+		</File>
+		<File
 			RelativePath=".\Makefile"
+			>
+		</File>
+		<File
+			RelativePath=".\PIC1.png"
 			>
 		</File>
 		<File
