@@ -1,0 +1,15 @@
+Dirt
+The texture coordinates are:
+
+Top left: 
+0, 0
+
+Top right: 
+0.03125, 0
+
+Bottom right: 
+0.03125, 0.03125
+
+Bottom left: 
+0, 0.03125
+
