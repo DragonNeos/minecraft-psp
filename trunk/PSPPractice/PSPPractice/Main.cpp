@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 	printf("Texture has been created\n");
 	worldTexture = new Texture(); //Instantiate Textures of the world
 	printf("Texture has been instantiated\n");
-	worldTexture->loadTexture("Data/texture.tga"); ////load the texture image used in the world
+	worldTexture->loadTexture("Data/texture.png"); ////load the texture image used in the world
 	printf("Texture has been loaded\n");
 	//initialising a multi-dimensional array via dynamic memory allocation using pointers(Not used currently)
 	//world = new Cube***[1]; //Initialise a dummy dimension which will simply act as a pointer to the 3D array(Not used currently)
