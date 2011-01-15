@@ -5,16 +5,19 @@
 // -- THIS IS STILL PRACTICE CODE USED TO PRACTICE THE IMPLEMENTATION OF FEATURES FOR MINECRAFT-PSP --
 // 
 
-#include <stdlib.h> // Header file for standard library
-#include <pspctrl.h> // Header file for the PSP's control library
-#include "GLLib.h" // Header File carrying all OpenGL32 and GLUT headers
-#include "Display.h" // Header File For the 'Display' class
-#include "Triangle.h" // Header file for the 'Triangle' class
-#include "Cube.h" // Header file for the 'Cube' class
+#include <stdlib.h>		// Header file for standard library
+#include <stdio.h>		// Header file for file IO
+#include <pspctrl.h>	// Header file for the PSP's control library
+#include "GLLib.h"		// Header file carrying all OpenGL32 and GLUT headers
+#include "Display.h"	// Header file For the 'Display' class
+#include "Triangle.h"	// Header file for the 'Triangle' class
+#include "Cube.h"		// Header file for the 'Cube' class
 #include "Controller.h" // Header file for the 'Controller' class
-#include "Texture.h"
+#include "Texture.h"	// Header file for the 'Texture' class
+#include "SaveGameIO.h" // Header file for the 'SaveGameIO" class
+#include <string.h>
 
-int worldSize, blockSize;
+int worldSize, blockSize, blockNumber;
 Cube ***world;
 Texture *worldTexture;
 
@@ -25,9 +28,13 @@ int main(int argc, char **argv)
 	float x = 0,y = 0, z = 0, rotation = 0, worldR = 0; //Position variables of the cube
 	worldSize = 6; //Size of the WorldArray in terms of amount of blocks per Dimension
 	blockSize = 4; //Size of blocks dimension(x,y,z)
+	blockNumber=0;
 	
-	Display *display = new Display(); //Instantiate the graphics class via dynamic memory allocation
-	Controller *controller = new Controller(); //Instantiate the controls class via dynamic memory allocation
+	Display *display = new Display();			//Instantiate the graphics class via dynamic memory allocation
+	Controller *controller = new Controller();  //Instantiate the controls class via dynamic memory allocation
+	//SaveGameIO *saveGameIO = new SaveGameIO();
+	SaveGameIO saveGame;
+	//char* testBuffer[];
 
 	display->initialise(); //Initialises all OpenGL requirements and creates a viewport
 	glEnable(GL_TEXTURE_2D); //Enable Texturing
@@ -36,6 +43,21 @@ int main(int argc, char **argv)
 	printf("Texture has been instantiated\n");
 	worldTexture->loadTexture("Data/texture.png"); ////load the texture image used in the world
 	printf("Texture has been loaded\n");
+
+	char buffer[80];
+	printf("Loading savegame and inserting it into buffer\n");
+	strcpy(buffer, saveGame.loadSaveGame("Saves/savegame.txt"));
+	printf("Savegame Loaded\n");
+	//printf(buffer);
+
+
+	//char &bufferContents = buffer[];
+	//printf("Savegame =");
+	//printf("\n");
+	//printf(buffer);
+	//printf("\n");
+
+	//printf("\n");
 	//initialising a multi-dimensional array via dynamic memory allocation using pointers(Not used currently)
 	//world = new Cube***[1]; //Initialise a dummy dimension which will simply act as a pointer to the 3D array(Not used currently)
 
@@ -53,9 +75,21 @@ int main(int argc, char **argv)
 	{
 		for(int j = 0, y = 0; j < worldSize; j++, y+= blockSize)
 		{
-			for(int k = 0, z = 0; k < worldSize; k ++, z+=blockSize)
+			for(int k = 0, z = 0; k < worldSize; k ++, z+=blockSize, blockNumber++)
 			{
-				world[i][j][k].createBlock(i); //Create the block based off it's type ID
+				short tempShort = static_cast<short>(buffer[blockNumber]); //Converting the individual char to a short (it will be in the form of an ascii code
+				if (tempShort==10)
+				{
+					printf("break\n");
+					blockNumber++;
+					tempShort = static_cast<short>(buffer[blockNumber]);
+				}
+				else if (tempShort==0)
+				{
+					printf("null block\n");
+				}
+				tempShort-=48;	//Subtracting 48 from the ASCII code to get a number (0-9), it is a bit of a shit way but it works for now
+				world[i][j][k].createBlock(tempShort); //Create the block based off it's type ID	
 				world[i][j][k].initialise(blockSize, blockSize, blockSize); //Instantiate a new object and assign it via dynamic memory allocation
 				world[i][j][k].position->set(x, y, z); //Position the cubes apart from each other in order of theyre relative co-ordinates in the array
 			}
@@ -101,7 +135,7 @@ int main(int argc, char **argv)
 
 		if(controller->isKeyDown(PSP_CTRL_CROSS)) //Check for 'x' press to rotate the individual blocks
 		{
-			printf("'X' pressed\n");
+			//printf("'X' pressed\n");
 			rotation += 4;
 		}
 		if(controller->isKeyDown(PSP_CTRL_CIRCLE)) //Check for circle press to rotate world
