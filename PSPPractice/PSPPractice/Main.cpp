@@ -44,20 +44,13 @@ int main(int argc, char **argv)
 	worldTexture->loadTexture("Data/texture.png"); ////load the texture image used in the world
 	printf("Texture has been loaded\n");
 
-	char buffer[80];
+	char buffer[300];
 	printf("Loading savegame and inserting it into buffer\n");
 	strcpy(buffer, saveGame.loadSaveGame("Saves/savegame.txt"));
 	printf("Savegame Loaded\n");
 	//printf(buffer);
 
 
-	//char &bufferContents = buffer[];
-	//printf("Savegame =");
-	//printf("\n");
-	//printf(buffer);
-	//printf("\n");
-
-	//printf("\n");
 	//initialising a multi-dimensional array via dynamic memory allocation using pointers(Not used currently)
 	//world = new Cube***[1]; //Initialise a dummy dimension which will simply act as a pointer to the 3D array(Not used currently)
 
@@ -71,24 +64,32 @@ int main(int argc, char **argv)
 		}
 	}
 
-	for(int i = 0, x = 0; i < worldSize; i++, x += blockSize) //Initialise and dynamically allocate a 3D PointerArray new cube objects
+	for(int i = 0, y = worldSize; i < worldSize; i++, y -= blockSize) //Initialise and dynamically allocate a 3D PointerArray new cube objects
 	{
-		for(int j = 0, y = 0; j < worldSize; j++, y+= blockSize)
+		for(int j = 0, z = 0; j < worldSize; j++, z+= blockSize)
 		{
-			for(int k = 0, z = 0; k < worldSize; k ++, z+=blockSize, blockNumber++)
+			for(int k = 0, x = 0; k < worldSize; k ++, x+=blockSize, blockNumber++)
 			{
+
 				short tempShort = static_cast<short>(buffer[blockNumber]); //Converting the individual char to a short (it will be in the form of an ascii code
-				if (tempShort==10)
-				{
-					printf("break\n");
-					blockNumber++;
-					tempShort = static_cast<short>(buffer[blockNumber]);
+				if (tempShort==13)
+				{				
+					blockNumber+=2;
+					tempShort = (short) buffer[blockNumber];
+					printf("Break (%c)\n", buffer[blockNumber]);
 				}
-				else if (tempShort==0)
+				if (tempShort==0)
 				{
-					printf("null block\n");
+					printf("block %d", blockNumber);
+					printf(" (null)\n");
 				}
-				tempShort-=48;	//Subtracting 48 from the ASCII code to get a number (0-9), it is a bit of a shit way but it works for now
+
+				tempShort-=48;	//Subtracting 48 from the ASCII code to get a number (0-9)
+				if (tempShort<=0)
+				{
+					printf("Warning num is %d at block %d\n", tempShort, blockNumber);
+					printf("Char is(%c)\n", buffer[blockNumber]);
+				}
 				world[i][j][k].createBlock(tempShort); //Create the block based off it's type ID	
 				world[i][j][k].initialise(blockSize, blockSize, blockSize); //Instantiate a new object and assign it via dynamic memory allocation
 				world[i][j][k].position->set(x, y, z); //Position the cubes apart from each other in order of theyre relative co-ordinates in the array
