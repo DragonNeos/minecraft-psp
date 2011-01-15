@@ -1,5 +1,5 @@
 TARGET = PSPGL-Moehammered
-OBJS = Main.o Display.o Triangle.o Cube.o Controller.o Vector.o Texture.o 
+OBJS = Main.o Display.o Triangle.o Cube.o Controller.o Vector.o Texture.o SaveGameIO.o
 
 CFLAGS = -O2 -G0 -Wall
 CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
@@ -15,8 +15,8 @@ LDFLAGS += -DMODULE_NAME="lesson1" psp-setup.c
 
 EXTRA_TARGETS = EBOOT.PBP
 PSP_EBOOT_TITLE = MineCraft-PSP_by_Mouhamad&David
-# PSP_EBOOT_ICON = ICON0.png
-# PSP_EBOOT_PIC1 = PIC1.png
+PSP_EBOOT_ICON = ICON0.png
+PSP_EBOOT_PIC1 = PIC1.png
 
 
 PSPSDK=$(shell psp-config --pspsdk-path)
