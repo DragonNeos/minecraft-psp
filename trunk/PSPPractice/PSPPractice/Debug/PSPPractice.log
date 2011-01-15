@@ -1,0 +1,29 @@
+﻿Build started 15/01/2011 11:39:32 PM.
+     1>Project "E:\Work\C++\PSPPractice\PSPPractice\PSPPractice.vcxproj" on node 2 (build target(s)).
+     1>Build:
+         vsmake && copy EBOOT.PBP G:\PSP\GAME\MinecraftPSP
+         psp-g++ -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -fno-exceptions -fno-rtti -D_PSP_FW_VERSION=150   -c -o Main.o Main.cpp
+         Main.cpp: In function 'int main(int, char**)':
+     1>Main.cpp(44): warning : deprecated conversion from string constant to 'char*'
+     1>Main.cpp(49): warning : deprecated conversion from string constant to 'char*'
+         psp-gcc -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -D_PSP_FW_VERSION=150  -L. -LE:/Programs/pspsdk/psp/sdk/lib -DMODULE_NAME="lesson1" psp-setup.c  Main.o Display.o Triangle.o Cube.o Controller.o Vector.o Texture.o SaveGameIO.o -lglut -lGLU -lGL -lm -lc -lpsputility -lpspdebug -lpspge -lpspdisplay -lpspctrl -lpspsdk -lpspvfpu -lpsplibc -lpspuser -lpspkernel -lpsprtc -lpsppower -lstdc++ -lpng -lz -lm -lpspdebug -lpspdisplay -lpspge -lpspctrl -lpspsdk -lc -lpspnet -lpspnet_inet -lpspnet_apctl -lpspnet_resolver -lpsputility -lpspuser -lpspkernel -o PSPGL-Moehammered.elf
+         psp-fixup-imports PSPGL-Moehammered.elf
+         psp-strip PSPGL-Moehammered.elf -o PSPGL-Moehammered_strip.elf
+         pack-pbp EBOOT.PBP PARAM.SFO ICON0.png  \
+         	NULL NULL PIC1.png  \
+         	NULL  PSPGL-Moehammered_strip.elf NULL
+         [0]        408 bytes | PARAM.SFO
+         [1]      11711 bytes | ICON0.png
+         [2]          0 bytes | NULL
+         [3]          0 bytes | NULL
+         [4]      89204 bytes | PIC1.png
+         [5]          0 bytes | NULL
+         [6]     291536 bytes | PSPGL-Moehammered_strip.elf
+         [7]          0 bytes | NULL
+         E:/Programs/pspsdk/bin/rm -f PSPGL-Moehammered_strip.elf
+                 1 file(s) copied.
+     1>Done Building Project "E:\Work\C++\PSPPractice\PSPPractice\PSPPractice.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.65
