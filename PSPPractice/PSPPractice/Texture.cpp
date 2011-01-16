@@ -1,4 +1,4 @@
-// Author: Mouhamad Abdallah
+// Author: Mouhamad Abdallah & David Kilford
 // Date: 29 December 2010
 // Modifications: All modifications are documented via Repository on google-code page
 

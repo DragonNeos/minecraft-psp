@@ -1,14 +1,14 @@
-// Author: Mouhamad Abdallah
-// Date: 29 December 2010
-// Modifications: All modifications are documented via Repository on google-code page
+// Author:			Mouhamad Abdallah
+// Date:			29 December 2010
+// Modifications:	All modifications are documented via Repository on google-code page
 
 #ifndef CUBE_H
 #define CUBE_H
 
 #include <stdlib.h> // Header file for standard library
 #include "Vector.h" //Header file for Vector class
-//#include "Texture.h"
 #define TEXTURE_INTERVAL 0.03125f
+
 enum Block
 {
 	DIRT,

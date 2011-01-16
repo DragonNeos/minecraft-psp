@@ -1,6 +1,6 @@
-// Author: Mouhamad Abdallah
-// Date: 29 December 2010
-// Modifications: All modifications are documented via Repository on google-code page
+// Author:			Mouhamad Abdallah & David Kilford
+// Date:			29 December 2010
+// Modifications:	All modifications are documented via Repository on google-code page
 //
 // -- THIS IS STILL PRACTICE CODE USED TO PRACTICE THE IMPLEMENTATION OF FEATURES FOR MINECRAFT-PSP --
 // 
@@ -14,7 +14,7 @@
 #include "Cube.h"		// Header file for the 'Cube' class
 #include "Controller.h" // Header file for the 'Controller' class
 #include "Texture.h"	// Header file for the 'Texture' class
-#include "SaveGameIO.h" // Header file for the 'SaveGameIO" class
+#include "WorldManager.h" // Header file for the 'WorldManager" class
 #include <string.h>
 
 int worldSize, blockSize, blockNumber;
@@ -28,26 +28,23 @@ int main(int argc, char **argv)
 	float x = 0,y = 0, z = 0, rotation = 0, worldR = 0; //Position variables of the cube
 	worldSize = 6; //Size of the WorldArray in terms of amount of blocks per Dimension
 	blockSize = 4; //Size of blocks dimension(x,y,z)
-	blockNumber=0;
-	
+	blockNumber = 0;
+	WorldManager worldManager;
+
 	Display *display = new Display();			//Instantiate the graphics class via dynamic memory allocation
 	Controller *controller = new Controller();  //Instantiate the controls class via dynamic memory allocation
-	//SaveGameIO *saveGameIO = new SaveGameIO();
-	SaveGameIO saveGame;
-	//char* testBuffer[];
-
+	
 	display->initialise(); //Initialises all OpenGL requirements and creates a viewport
 	glEnable(GL_TEXTURE_2D); //Enable Texturing
-	printf("Texture has been created\n");
+	
 	worldTexture = new Texture(); //Instantiate Textures of the world
-	printf("Texture has been instantiated\n");
+	
 	worldTexture->loadTexture("Data/texture.png"); ////load the texture image used in the world
-	printf("Texture has been loaded\n");
-
-	char buffer[300];
-	printf("Loading savegame and inserting it into buffer\n");
-	strcpy(buffer, saveGame.loadSaveGame("Saves/savegame.txt"));
-	printf("Savegame Loaded\n");
+	
+	printf("Loading World\n");
+	worldManager.loadWorld("Saves/world.txt", worldSize);
+	//strcpy(buffer, saveGame.loadSaveGame("Saves/savegame.txt"));
+	printf("World Loaded\n");
 	//printf(buffer);
 
 
@@ -64,33 +61,13 @@ int main(int argc, char **argv)
 		}
 	}
 
-	for(int i = 0, y = worldSize; i < worldSize; i++, y -= blockSize) //Initialise and dynamically allocate a 3D PointerArray new cube objects
+	for(int i = 0, y = 0; i < worldSize; i++, y += blockSize) //Initialise and dynamically allocate a 3D PointerArray new cube objects
 	{
 		for(int j = 0, z = 0; j < worldSize; j++, z+= blockSize)
 		{
 			for(int k = 0, x = 0; k < worldSize; k ++, x+=blockSize, blockNumber++)
 			{
-
-				short tempShort = static_cast<short>(buffer[blockNumber]); //Converting the individual char to a short (it will be in the form of an ascii code
-				if (tempShort==13)
-				{				
-					blockNumber+=2;
-					tempShort = (short) buffer[blockNumber];
-					printf("Break (%c)\n", buffer[blockNumber]);
-				}
-				if (tempShort==0)
-				{
-					printf("block %d", blockNumber);
-					printf(" (null)\n");
-				}
-
-				tempShort-=48;	//Subtracting 48 from the ASCII code to get a number (0-9)
-				if (tempShort<=0)
-				{
-					printf("Warning num is %d at block %d\n", tempShort, blockNumber);
-					printf("Char is(%c)\n", buffer[blockNumber]);
-				}
-				world[i][j][k].createBlock(tempShort); //Create the block based off it's type ID	
+				world[i][j][k].createBlock(worldManager.blockID[blockNumber]); //Create the block based off it's type ID	
 				world[i][j][k].initialise(blockSize, blockSize, blockSize); //Instantiate a new object and assign it via dynamic memory allocation
 				world[i][j][k].position->set(x, y, z); //Position the cubes apart from each other in order of theyre relative co-ordinates in the array
 			}
