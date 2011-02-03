@@ -35,8 +35,8 @@
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
-    <NMakeBuildCommandLine Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">vsmake &amp;&amp; copy EBOOT.PBP G:\PSP\GAME\MinecraftPSP</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">vsmake clean &amp;&amp; vsmake copy EBOOT.PBP G:\PSP\GAME\MinecraftPSP</NMakeReBuildCommandLine>
+    <NMakeBuildCommandLine Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">vsmake &amp;&amp; copy EBOOT.PBP F:\PSP\GAME\MinecraftPSP</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">vsmake clean &amp;&amp; vsmake copy EBOOT.PBP F:\PSP\GAME\MinecraftPSP</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">vsmake clean</NMakeCleanCommandLine>
     <NMakeOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EBOOT.PBP</NMakeOutput>
     <NMakePreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
@@ -59,7 +59,9 @@
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="psp-setup.c" />
     <ClCompile Include="SaveGameIO.cpp" />
     <ClCompile Include="Vector.cpp" />
@@ -68,8 +70,11 @@
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="WorldManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Inventory.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="SaveGameIO.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Controller.h" />
@@ -78,6 +83,7 @@
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="GLLib.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="WorldManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ICON0.png" />
