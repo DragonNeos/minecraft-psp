@@ -145,6 +145,124 @@ void Cube::createBlock(short block)
 			bottomFace.upperY = TEXTURE_INTERVAL;
 			break;
 
+		case WOODENPLANK:
+			//Top Face Texture Mapping Co-ordinates set
+			topFace.lowerX = TEXTURE_INTERVAL;
+			topFace.lowerY = TEXTURE_INTERVAL*2.0f;
+			topFace.upperX = TEXTURE_INTERVAL*2;
+			topFace.upperY = TEXTURE_INTERVAL*3.0f;
+
+			//Side Face Texture Mapping Co-ordinates set
+			sideFace.lowerX = TEXTURE_INTERVAL;
+			sideFace.lowerY = TEXTURE_INTERVAL*2.0f;
+			sideFace.upperX = TEXTURE_INTERVAL*2;
+			sideFace.upperY = TEXTURE_INTERVAL*3.0f;
+
+			//Bottom Face Texture Mapping Co-ordinates set
+			bottomFace.lowerX = TEXTURE_INTERVAL;
+			bottomFace.lowerY = TEXTURE_INTERVAL*2.0f;
+			bottomFace.upperX = TEXTURE_INTERVAL*2;
+			bottomFace.upperY = TEXTURE_INTERVAL*3.0f;
+			break;
+		case BEDROCK:
+			//Top Face Texture Mapping Co-ordinates set
+			topFace.lowerX = TEXTURE_INTERVAL*2;
+			topFace.lowerY = TEXTURE_INTERVAL*8;
+			topFace.upperX = TEXTURE_INTERVAL*3;
+			topFace.upperY = TEXTURE_INTERVAL*9;
+
+			//Side Face Texture Mapping Co-ordinates set
+			sideFace.lowerX = TEXTURE_INTERVAL*2;
+			sideFace.lowerY = TEXTURE_INTERVAL*8;
+			sideFace.upperX = TEXTURE_INTERVAL*3;
+			sideFace.upperY = TEXTURE_INTERVAL*9;
+
+			//Bottom Face Texture Mapping Co-ordinates set
+			bottomFace.lowerX = TEXTURE_INTERVAL*2;
+			bottomFace.lowerY = TEXTURE_INTERVAL*8;
+			bottomFace.upperX = TEXTURE_INTERVAL*3;
+			bottomFace.upperY = TEXTURE_INTERVAL*9;
+			break;
+		case GRAVEL:
+			//Top Face Texture Mapping Co-ordinates set
+			topFace.lowerX = 0;
+			topFace.lowerY = TEXTURE_INTERVAL*8.0f;
+			topFace.upperX = TEXTURE_INTERVAL;
+			topFace.upperY = TEXTURE_INTERVAL*9.0f;
+
+			//Side Face Texture Mapping Co-ordinates set
+			sideFace.lowerX = 0;
+			sideFace.lowerY = TEXTURE_INTERVAL*8.0f;
+			sideFace.upperX = TEXTURE_INTERVAL;
+			sideFace.upperY = TEXTURE_INTERVAL*9.0f;
+
+			//Bottom Face Texture Mapping Co-ordinates set
+			bottomFace.lowerX = 0;
+			bottomFace.lowerY = TEXTURE_INTERVAL*8.0f;
+			bottomFace.upperX = TEXTURE_INTERVAL;
+			bottomFace.upperY = TEXTURE_INTERVAL*9.0f;
+			break;
+
+		case GOLDORE:
+			//Top Face Texture Mapping Co-ordinates set
+			topFace.lowerX = TEXTURE_INTERVAL*2;
+			topFace.lowerY = TEXTURE_INTERVAL*5;
+			topFace.upperX = TEXTURE_INTERVAL*3;
+			topFace.upperY = TEXTURE_INTERVAL*6;
+
+			//Side Face Texture Mapping Co-ordinates set
+			sideFace.lowerX = TEXTURE_INTERVAL*2;
+			sideFace.lowerY = TEXTURE_INTERVAL*5;
+			sideFace.upperX = TEXTURE_INTERVAL*3;
+			sideFace.upperY = TEXTURE_INTERVAL*6;
+
+			//Bottom Face Texture Mapping Co-ordinates set
+			bottomFace.lowerX = TEXTURE_INTERVAL*2;
+			bottomFace.lowerY = TEXTURE_INTERVAL*5;
+			bottomFace.upperX = TEXTURE_INTERVAL*3;
+			bottomFace.upperY = TEXTURE_INTERVAL*6;
+			break;
+
+		case COALORE:
+			//Top Face Texture Mapping Co-ordinates set
+			topFace.lowerX = TEXTURE_INTERVAL*2;
+			topFace.lowerY = TEXTURE_INTERVAL*1;
+			topFace.upperX = TEXTURE_INTERVAL*3;
+			topFace.upperY = TEXTURE_INTERVAL*2;
+
+			//Side Face Texture Mapping Co-ordinates set
+			sideFace.lowerX = TEXTURE_INTERVAL*2;
+			sideFace.lowerY = TEXTURE_INTERVAL*1;
+			sideFace.upperX = TEXTURE_INTERVAL*3;
+			sideFace.upperY = TEXTURE_INTERVAL*2;
+
+			//Bottom Face Texture Mapping Co-ordinates set
+			bottomFace.lowerX = TEXTURE_INTERVAL*2;
+			bottomFace.lowerY = TEXTURE_INTERVAL*1;
+			bottomFace.upperX = TEXTURE_INTERVAL*3;
+			bottomFace.upperY = TEXTURE_INTERVAL*2;
+			break;
+
+		case IRONORE:
+			//Top Face Texture Mapping Co-ordinates set
+			topFace.lowerX = TEXTURE_INTERVAL*2;
+			topFace.lowerY = TEXTURE_INTERVAL*4;
+			topFace.upperX = TEXTURE_INTERVAL*3;
+			topFace.upperY = TEXTURE_INTERVAL*5;
+
+			//Side Face Texture Mapping Co-ordinates set
+			sideFace.lowerX = TEXTURE_INTERVAL*2;
+			sideFace.lowerY = TEXTURE_INTERVAL*4;
+			sideFace.upperX = TEXTURE_INTERVAL*3;
+			sideFace.upperY = TEXTURE_INTERVAL*5;
+
+			//Bottom Face Texture Mapping Co-ordinates set
+			bottomFace.lowerX = TEXTURE_INTERVAL*2;
+			bottomFace.lowerY = TEXTURE_INTERVAL*4;
+			bottomFace.upperX = TEXTURE_INTERVAL*3;
+			bottomFace.upperY = TEXTURE_INTERVAL*5;
+			break;
+
 		default:
 			//Top Face Texture Mapping Co-ordinates set
 			topFace.lowerX = 0;
