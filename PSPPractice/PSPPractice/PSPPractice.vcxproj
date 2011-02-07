@@ -64,6 +64,7 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="psp-setup.c" />
     <ClCompile Include="SaveGameIO.cpp" />
+    <ClCompile Include="Text.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Cube.cpp" />
@@ -76,6 +77,7 @@
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="SaveGameIO.h" />
+    <ClInclude Include="Text.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Display.h" />
