@@ -1,5 +1,5 @@
-// Author: Mouhamad Abdallah
-// Date: 29 December 2010
+// Author: Mouhamad Abdallah and David Kilford
+// Date: 29 December 2010		(Modified by David 7th February 2011)
 // Modifications: All modifications are documented via Repository on google-code page
 
 #ifndef CONTROLLER_H
@@ -18,6 +18,8 @@ class Controller
 
 		void updateController(); // Method to update state of key pad
 		bool isKeyDown(unsigned int key); //Method to check for a certain key press
+		int  getJoystickX();
+		int  getJoystickY();
 };
 
 #endif
