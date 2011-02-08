@@ -40,13 +40,16 @@ class Cube
 {
 	public:
 		float r,g,b; //Variables for holding values of color
+		short blockType; //the blocks ID type
 		Vector *position, *size; //Vectors for position and dimensions
 		MappingInfo topFace, sideFace, bottomFace;
-		//Texture *texture;
+
+
 		Cube(); //Default Constructor
 		void initialise(); //Better method to initialise the block instead of re-instantiation
 		void initialise(float width, float height, float depth); //Method allowing dimension changes
 		void createBlock(short block); //Initialise the block type and set the tex-coord's for the texture
+		short returnBlockType(); //returns the block type ID
 		void draw(); //draw shape with translations
 		void draw(float rotation, float x, float y, float z); //draw shape with rotations applied
 

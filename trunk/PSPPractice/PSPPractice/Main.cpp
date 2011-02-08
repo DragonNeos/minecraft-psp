@@ -50,7 +50,8 @@ int main(int argc, char **argv)
 	world = new World();						//Instantiate the World class via dynamic memory allocation
 
 	display->initialise();	 //Initialises all OpenGL requirements and creates a viewport
-	glEnable(GL_TEXTURE_2D); //Enable Texturing
+	display->enableTextures(); //Enable Texturing
+	display->enableTransparency(); //Enable basic transperancy
 	
 	worldTexture = new Texture(); //Instantiate Textures of the world
 	
@@ -85,10 +86,10 @@ int main(int argc, char **argv)
 
 		inventory -> displayInventory();
 
-		display->translate(0,0,-50); //Push the scene inside of the viewport frustum
+		display->translate(-20,-10,-80); //Push the scene inside of the viewport frustum
 
 		//Rotate the world according to the joystick
-		display->translate(x,y,z);//Move the 'world' around in the view
+		//display->translate(x,y,z);//Move the 'world' around in the view
 
 		//Names may be confusing, to generate a change on the 'y' axis you rotation around x, vise versa
 		display->rotate(yRotation, 0, 1, 0);	
@@ -98,19 +99,27 @@ int main(int argc, char **argv)
 
 		if(controller->isKeyDown(PSP_CTRL_LEFT)) //Check for left press to move the world
 		{
-			x -= 4;
+			//x -= 1;
+			//if(x < 0)
+			//	x = worldSize;
 		}
 		if(controller->isKeyDown(PSP_CTRL_RIGHT)) //Check for right press to move the world
 		{
-			x += 4;
+			x += 1;
+			if(x > worldSize-1)
+				x = 0;
 		}
 		if(controller->isKeyDown(PSP_CTRL_DOWN)) //Check for down press to move the world
 		{
-			y -= 4;
+			//y -= 1;
+			//if(y < 0)
+			//	y = worldSize;
 		}
 		if(controller->isKeyDown(PSP_CTRL_UP)) //Check for up press to move the world
 		{
-			y += 4;
+			y += 1;
+			if(y > worldSize-1)
+				y = 0;
 		}
 
 		//Joystick controls
@@ -193,24 +202,29 @@ int main(int argc, char **argv)
 
 		if(controller->isKeyDown(PSP_CTRL_CROSS)) //Check for 'x' press to rotate the individual blocks
 		{
-			//printf("'X' pressed\n");
-			rotation += 4;
+			printf("'X' pressed\n");
+			world->changeBlock((int)x, (int)y, (int)z, 0);
 		}
 		if(controller->isKeyDown(PSP_CTRL_CIRCLE)) //Check for circle press to rotate world
 		{
-			worldR += 4;
+			printf("'O' pressed\n");
+			world->changeBlock((int)x, (int)y, (int)z, inventory->getInventory());
 		}
 
 		if(controller->isKeyDown(PSP_CTRL_SQUARE)) //Check for circle press to rotate world
 		{
-			yRotation = 0;
+			printf("'[]' pressed\n");
+			z+=1;
+			if(z > worldSize - 1)
+				z = 0;
+			/*yRotation = 0;
 			xRotation = 0;
-			zRotation = 0;
+			zRotation = 0;*/
 		}
 
 		if(controller->isKeyDown(PSP_CTRL_TRIANGLE)) //Check for triangle to display inventory
 		{
-
+			printf("'/\' pressed\n");
 			if (trianglePreviouslyPressed==false)
 			{
 				trianglePreviouslyPressed=true;

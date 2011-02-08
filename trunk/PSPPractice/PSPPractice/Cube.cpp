@@ -6,7 +6,6 @@
 #include "GLLib.h" //Header file for OpenGL library
 #include "Cube.h" //Header file for 'Cube' class
 #include "Vector.h" //Header file for Vector math class
-#include "Texture.h"
 
 Cube::Cube() //Default/Empty constructor
 {
@@ -26,8 +25,15 @@ void Cube::initialise(float width, float height, float depth)
 	this->size = new Vector(width, height, depth);
 }
 
+short Cube::returnBlockType()
+{
+	return blockType;
+}
+
 void Cube::createBlock(short block)
 {
+	
+
 	switch(block)
 	{
 		case DIRT:
@@ -261,6 +267,25 @@ void Cube::createBlock(short block)
 			bottomFace.lowerY = TEXTURE_INTERVAL*4;
 			bottomFace.upperX = TEXTURE_INTERVAL*3;
 			bottomFace.upperY = TEXTURE_INTERVAL*5;
+			break;
+		case AIR:
+			//Top Face Texture Mapping Co-ordinates set
+			topFace.lowerX = 0;
+			topFace.lowerY = TEXTURE_INTERVAL*10.0f;
+			topFace.upperX = TEXTURE_INTERVAL;
+			topFace.upperY = TEXTURE_INTERVAL*11.0f;
+
+			//Side Face Texture Mapping Co-ordinates set
+			sideFace.lowerX = 0;
+			sideFace.lowerY = TEXTURE_INTERVAL*10.0f;
+			sideFace.upperX = TEXTURE_INTERVAL;
+			sideFace.upperY = TEXTURE_INTERVAL*11.0f;
+
+			//Bottom Face Texture Mapping Co-ordinates set
+			bottomFace.lowerX = 0;
+			bottomFace.lowerY = TEXTURE_INTERVAL*10.0f;
+			bottomFace.upperX = TEXTURE_INTERVAL;
+			bottomFace.upperY = TEXTURE_INTERVAL*11.0f;
 			break;
 
 		default:

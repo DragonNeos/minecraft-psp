@@ -1,5 +1,5 @@
 // Author: Mouhamad Abdallah
-// Date: 29 December 2010
+// Date: 29 December 2010 (Modified by Mouhamad Abdallah Tuesday 8th February 2011)
 // Modifications: All modifications are documented via Repository on google-code page
 
 #ifndef DISPLAY_H
@@ -13,6 +13,11 @@ class Display
 		int window;
 		float width, height;
 	Display();
+
+	void enableTextures();
+	void disableTextures();
+	void enableTransparency();
+	void disableTransparency();
 
 	void initialise();
 	void initialise(float width, float height);
