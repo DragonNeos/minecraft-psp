@@ -16,7 +16,7 @@ class WorldManager
 		short blockNumber;
 		FileManager file;
 		WorldManager();
-
+		void initialise();
 		void saveWorld(char *filepath, char *bufferData);
 		void loadWorld(char *filepath, int &worldSize);
 };

@@ -1,5 +1,5 @@
 TARGET = MinecraftPSP
-OBJS = Main.o Display.o Triangle.o Cube.o Controller.o Vector.o Texture.o FileManager.o WorldManager.o Inventory.o
+OBJS = Main.o Display.o Triangle.o Cube.o Controller.o Vector.o Texture.o FileManager.o WorldManager.o Inventory.o World.o
 
 CFLAGS = -O2 -G0 -Wall
 CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
