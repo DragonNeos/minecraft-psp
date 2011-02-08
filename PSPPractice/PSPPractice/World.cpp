@@ -39,6 +39,16 @@ void World::initialiseWorld(int worldLimit, int blockSide, short *&blockID) //In
 	}
 }
 
+short World::returnBlock(int x, int y, int z) //Returns the block type at the given position
+{
+	return world[x][y][z].returnBlockType();
+}
+
+void World::changeBlock(int x, int y, int z, short blockType) //Changes the block type at the given position
+{
+	world[x][y][z].createBlock(blockType);
+}
+
 void World::draw(float rotation, float xR, float yR, float zR) //Draw function of the entire world with rotation matrix included
 {
 		for(int x = 0; x < worldSize; x++)

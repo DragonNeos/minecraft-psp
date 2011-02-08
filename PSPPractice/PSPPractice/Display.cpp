@@ -1,5 +1,5 @@
 // Author: Mouhamad Abdallah
-// Date: 29 December 2010
+// Date: 29 December 2010 (Modified by Mouhamad Abdallah Tuesday 8th February 2011)
 // Modifications: All modifications are documented via Repository on google-code page
 
 #include <stdlib.h> // needed in order to have "exit" function @@@
@@ -62,6 +62,27 @@ void Display::initialise(float width, float height) // Initialisation method tha
 	//gluPerspective(45.0f,(float)width/(float)height,0.1f,100.0f);	// Calculate The Aspect Ratio Of The Window
 
 	glMatrixMode(GL_MODELVIEW);
+}
+
+void Display::enableTextures()
+{
+	glEnable(GL_TEXTURE_2D);	
+}
+
+void Display::disableTextures()
+{
+	glDisable(GL_TEXTURE_2D);
+}
+
+void Display::enableTransparency()
+{
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+}
+
+void Display::disableTransparency()
+{
+	glDisable(GL_BLEND);
 }
 
 void Display::smoothShading() // Places OpenGL in a smooth shading state
