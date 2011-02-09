@@ -19,11 +19,18 @@ class Display
 	void enableTransparency();
 	void disableTransparency();
 
+	void enableCulling();
+	void disableCulling();
+
 	void initialise();
 	void initialise(float width, float height);
 
 	void smoothShading();
 	void flatShading();
+
+	void cullFront();
+	void cullBack();
+	void cullBoth();
 
 	void resetOrigin();
 	void translate(float x, float y, float z);

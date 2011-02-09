@@ -85,6 +85,16 @@ void Display::disableTransparency()
 	glDisable(GL_BLEND);
 }
 
+void Display::enableCulling()
+{
+	glEnable(GL_CULL_FACE);
+}
+
+void Display::disableCulling()
+{
+	glDisable(GL_CULL_FACE);
+}
+
 void Display::smoothShading() // Places OpenGL in a smooth shading state
 {
 	glShadeModel(GL_SMOOTH);
@@ -93,6 +103,16 @@ void Display::smoothShading() // Places OpenGL in a smooth shading state
 void Display::flatShading() // Places OpenGL in a flat shading state
 {
 	glShadeModel(GL_FLAT);
+}
+
+void Display::cullFront()
+{
+	glCullFace(GL_FRONT);
+}
+
+void Display::cullBack()
+{
+	glCullFace(GL_BACK);
 }
 
 void Display::clearBuffers() // Clears the screen display buffer and depth buffer
