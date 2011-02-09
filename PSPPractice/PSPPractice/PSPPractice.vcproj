@@ -23,8 +23,8 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="vsmake &amp;&amp; copy EBOOT.PBP G:\PSP\GAME\PSPGL"
-				ReBuildCommandLine="vsmake clean &amp;&amp; vsmake copy EBOOT.PBP G:\PSP\GAME\PSPGL"
+				BuildCommandLine="vsmake &amp;&amp; copy EBOOT.PBP G:\PSP\GAME\MinecraftPSP"
+				ReBuildCommandLine="vsmake clean &amp;&amp; vsmake copy EBOOT.PBP G:\PSP\GAME\MinecraftPSP"
 				CleanCommandLine="vsmake clean"
 				Output="EBOOT.PBP"
 				PreprocessorDefinitions="WIN32;_DEBUG"
@@ -223,6 +223,10 @@
 		</File>
 		<File
 			RelativePath=".\readme.txt"
+			>
+		</File>
+		<File
+			RelativePath=".\Saves\world.txt"
 			>
 		</File>
 	</Files>

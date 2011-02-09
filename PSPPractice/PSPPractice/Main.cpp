@@ -52,6 +52,8 @@ int main(int argc, char **argv)
 	display->initialise();	 //Initialises all OpenGL requirements and creates a viewport
 	display->enableTextures(); //Enable Texturing
 	display->enableTransparency(); //Enable basic transperancy
+	//display->enableCulling();
+	//display->cullBack();
 	
 	worldTexture = new Texture(); //Instantiate Textures of the world
 	
@@ -86,7 +88,7 @@ int main(int argc, char **argv)
 
 		inventory -> displayInventory();
 
-		display->translate(-20,-10,-80); //Push the scene inside of the viewport frustum
+		display->translate(0, 0, -80); //Push the scene inside of the viewport frustum
 
 		//Rotate the world according to the joystick
 		//display->translate(x,y,z);//Move the 'world' around in the view
@@ -99,7 +101,7 @@ int main(int argc, char **argv)
 
 		if(controller->isKeyDown(PSP_CTRL_LEFT)) //Check for left press to move the world
 		{
-			//x -= 1;
+			//x -= 4;
 			//if(x < 0)
 			//	x = worldSize;
 		}
@@ -111,7 +113,7 @@ int main(int argc, char **argv)
 		}
 		if(controller->isKeyDown(PSP_CTRL_DOWN)) //Check for down press to move the world
 		{
-			//y -= 1;
+			//y -= 4;
 			//if(y < 0)
 			//	y = worldSize;
 		}
@@ -153,7 +155,7 @@ int main(int argc, char **argv)
 		{
 			if (displayInventory==false)
 			{
-				z -= 2;
+				//z -= 4;
 			}
 			else if (lPreviouslyPressed==false)
 			{
@@ -178,7 +180,7 @@ int main(int argc, char **argv)
 		{
 			if (displayInventory==false)
 			{
-				z += 2;
+				//z += 4;
 			}
 			else if (rPreviouslyPressed==false)
 			{
@@ -250,7 +252,7 @@ int main(int argc, char **argv)
 
 		
 		display->rotate(worldR,0,1,0);//rotate the world around to see around it
-		
+
 		world->draw(); //Draw the world
 
 		display->update(); //Update the display buffer(i.e. swap the buffer)
