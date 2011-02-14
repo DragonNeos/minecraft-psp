@@ -8,22 +8,14 @@
 #include "GLLib.h"
 #include "Texture.h"
 
-//enum Item
-//{
-//	DIRT,
-//	GRASS,
-//	SAND,
-//	STONE,
-//	COBBLESTONE,
-//	WOOD
-//};
-
 class Inventory
 {
 public:
-	Inventory(int itemIDArray[]);
-	void displayInventory();
-	void drawIcon(int position, int itemID);
+	Inventory(float itemIDArray[45]);
+	void drawInventory(bool displayInventory);
+	void drawInventoryBarIcon(int position, int itemID, float textureCoordx, float textureCoordy);
+	void drawInventoryIcon(int positionx, int positiony, int ItemID, float textureCoordx, float textureCoordy);
+	void drawSelectedIcon(int positionx, int positiony);
 	int getInventory();
 	void setInventoryNumber(int inventoryPosition);
 	int getInventoryNumber();

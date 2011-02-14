@@ -1,28 +1,12 @@
-﻿Build started 7/02/2011 10:20:32 PM.
+﻿Build started 14/02/2011 11:19:03 AM.
      1>Project "E:\Work\C++\PSPPractice\PSPPractice\PSPPractice.vcxproj" on node 2 (build target(s)).
      1>Build:
-         vsmake && copy EBOOT.PBP F:\PSP\GAME\MinecraftPSP
-         psp-g++ -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -fno-exceptions -fno-rtti -D_PSP_FW_VERSION=150   -c -o Main.o Main.cpp
-         Main.cpp: In function 'int main(int, char**)':
-     1>Main.cpp(57): warning : deprecated conversion from string constant to 'char*'
-     1>Main.cpp(60): warning : deprecated conversion from string constant to 'char*'
-     1>Main.cpp(36): warning : unused variable 'xRotationAmount'
-     1>Main.cpp(36): warning : unused variable 'zRotationAmount'
-         psp-g++ -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -fno-exceptions -fno-rtti -D_PSP_FW_VERSION=150   -c -o Display.o Display.cpp
-         psp-g++ -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -fno-exceptions -fno-rtti -D_PSP_FW_VERSION=150   -c -o Triangle.o Triangle.cpp
-         psp-g++ -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -fno-exceptions -fno-rtti -D_PSP_FW_VERSION=150   -c -o Cube.o Cube.cpp
-         psp-g++ -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -fno-exceptions -fno-rtti -D_PSP_FW_VERSION=150   -c -o Controller.o Controller.cpp
-         psp-g++ -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -fno-exceptions -fno-rtti -D_PSP_FW_VERSION=150   -c -o Vector.o Vector.cpp
-         psp-g++ -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -fno-exceptions -fno-rtti -D_PSP_FW_VERSION=150   -c -o Texture.o Texture.cpp
-         Texture.cpp: In member function 'Image* Texture::loadImage(char*)':
-     1>Texture.cpp(101): warning : comparison between signed and unsigned integer expressions
-     1>Texture.cpp(103): warning : comparison between signed and unsigned integer expressions
-         psp-g++ -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -fno-exceptions -fno-rtti -D_PSP_FW_VERSION=150   -c -o FileManager.o FileManager.cpp
-         psp-g++ -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -fno-exceptions -fno-rtti -D_PSP_FW_VERSION=150   -c -o WorldManager.o WorldManager.cpp
+         vsmake && copy EBOOT.PBP G:\PSP\GAME\MinecraftPSP
          psp-g++ -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -fno-exceptions -fno-rtti -D_PSP_FW_VERSION=150   -c -o Inventory.o Inventory.cpp
-         psp-gcc -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -D_PSP_FW_VERSION=150  -L. -LE:/Programs/pspsdk/psp/sdk/lib -DMODULE_NAME="lesson1" psp-setup.c  Main.o Display.o Triangle.o Cube.o Controller.o Vector.o Texture.o FileManager.o WorldManager.o Inventory.o -lglut -lGLU -lGL -lm -lc -lpsputility -lpspdebug -lpspge -lpspdisplay -lpspctrl -lpspsdk -lpspvfpu -lpsplibc -lpspuser -lpspkernel -lpsprtc -lpsppower -lstdc++ -lpng -lz -lm -lpspdebug -lpspdisplay -lpspge -lpspctrl -lpspsdk -lc -lpspnet -lpspnet_inet -lpspnet_apctl -lpspnet_resolver -lpsputility -lpspuser -lpspkernel -o MinecraftPSP.elf
+         Inventory.cpp: In constructor 'Inventory::Inventory(float*)':
+     1>Inventory.cpp(36): warning : unused variable 'temp'
+         psp-gcc -IC:\pspdev\psp\Projects\PSPPractice\PSPPractice -I. -IE:/Programs/pspsdk/psp/sdk/include -O2 -G0 -Wall -IE:/Programs/pspsdk/psp/sdk/../include  -fsingle-precision-constant -g -Wall -O2  -D_PSP_FW_VERSION=150  -L. -LE:/Programs/pspsdk/psp/sdk/lib -DMODULE_NAME="lesson1" psp-setup.c  Main.o Display.o Triangle.o Cube.o Controller.o Vector.o Texture.o FileManager.o WorldManager.o Inventory.o World.o -lglut -lGLU -lGL -lm -lc -lpsputility -lpspdebug -lpspge -lpspdisplay -lpspctrl -lpspsdk -lpspvfpu -lpsplibc -lpspuser -lpspkernel -lpsprtc -lpsppower -lstdc++ -lpng -lz -lm -lpspdebug -lpspdisplay -lpspge -lpspctrl -lpspsdk -lc -lpspnet -lpspnet_inet -lpspnet_apctl -lpspnet_resolver -lpsputility -lpspuser -lpspkernel -o MinecraftPSP.elf
          psp-fixup-imports MinecraftPSP.elf
-         mksfo 'MineCraft PSP' PARAM.SFO
          psp-strip MinecraftPSP.elf -o MinecraftPSP_strip.elf
          pack-pbp EBOOT.PBP PARAM.SFO ICON0.png  \
          	NULL NULL PIC1.png  \
@@ -33,7 +17,7 @@
          [3]          0 bytes | NULL
          [4]      26184 bytes | PIC1.png
          [5]          0 bytes | NULL
-         [6]     304572 bytes | MinecraftPSP_strip.elf
+         [6]     310728 bytes | MinecraftPSP_strip.elf
          [7]          0 bytes | NULL
          E:/Programs/pspsdk/bin/rm -f MinecraftPSP_strip.elf
                  1 file(s) copied.
@@ -41,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.06
+Time Elapsed 00:00:01.01

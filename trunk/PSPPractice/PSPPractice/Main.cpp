@@ -30,9 +30,8 @@ int main(int argc, char **argv)
 {
 	glutInit(&argc, argv); // The only method call that as of yet needs the command line arguments to initialise GLUT
 
-	float x = 0,y = 0, z = 0, rotation = 0, worldR = 0; //Position variables of the cube
-	float yRotation = 0, xRotation = 0, zRotation = 0;	//Rotation amounts for each axis
-	float xRotationAmount = 1, zRotationAmount = 0;		//Vars to remove axis rotation problems
+	float x = 0,y = 0, z = 0, worldR = 0; //Position variables of the cube
+	float yRotation = 0, xRotation = 0;	//Rotation amounts for each axis
 
 	worldSize = 6; //Size of the WorldArray in terms of amount of blocks per Dimension
 	blockSize = 4; //Size of blocks dimension(x,y,z)
@@ -64,12 +63,12 @@ int main(int argc, char **argv)
 	printf("World Loaded\n");
 
 	printf("Initialising Inventory\n");
-	int *itemIDArray;
-	itemIDArray = new int[9];
+	float *itemIDArray;
+	itemIDArray = new float[45];
 
-	for (int i = 0; i<9; i++)		//Filling array with junk data for testing
+	for (int i = 0; i<45; i++)		//Filling array with junk data for testing
 	{
-		itemIDArray[i] = i;
+		itemIDArray[i] = 3;
 	}
 
 	inventory = new Inventory(itemIDArray);		//Passing the reference to the array over to inventory
@@ -86,7 +85,7 @@ int main(int argc, char **argv)
 		display->clearBuffers(); //Clear screen and depth buffer
 		display->resetOrigin(); //Reset the co-ordinate origin
 
-		inventory -> displayInventory();
+		inventory -> drawInventory(displayInventory);
 
 		display->translate(0, 0, -80); //Push the scene inside of the viewport frustum
 
@@ -129,35 +128,31 @@ int main(int argc, char **argv)
 		{
 			if(yRotation>=360) yRotation-=360;		//Check so that rotation doesn't get too low
 			yRotation+=(controller->getJoystickX()-143)/25;
-			printf("Right Joystick: %d\n", controller->getJoystickX());
+			//printf("Right Joystick: %d\n", controller->getJoystickX());
 		}
 
 		if(controller->getJoystickX()<111)
 		{
 			if(yRotation<=-360) yRotation+=360;		//Check so that rotation doesn't get too low
 			yRotation+=(controller->getJoystickX()-111)/25;
-			printf("Left Joystick: %d\n", controller->getJoystickX());
+			//printf("Left Joystick: %d\n", controller->getJoystickX());
 		}
 
 		if(controller->getJoystickY()>143)
 		{
 			xRotation+=(controller->getJoystickY()-143)/25;
-			printf("Down Joystick: %d\n", controller->getJoystickY());
+			//printf("Down Joystick: %d\n", controller->getJoystickY());
 		}
 
 		if(controller->getJoystickY()<111)
 		{
 			xRotation+=(controller->getJoystickY()-111)/25;
-			printf("Up Joystick: %d\n", controller->getJoystickY());
+			//printf("Up Joystick: %d\n", controller->getJoystickY());
 		}
 
 		if(controller->isKeyDown(PSP_CTRL_LTRIGGER)) //Check for LTrigger press to control the zoom of the world
 		{
-			if (displayInventory==false)
-			{
-				//z -= 4;
-			}
-			else if (lPreviouslyPressed==false)
+			if (lPreviouslyPressed==false)
 			{
 				lPreviouslyPressed=true;
 				if (selectedItem==1)
@@ -178,11 +173,8 @@ int main(int argc, char **argv)
 		}
 		if(controller->isKeyDown(PSP_CTRL_RTRIGGER)) //Check for RTrigger press to control the zoom of the world
 		{
-			if (displayInventory==false)
-			{
-				//z += 4;
-			}
-			else if (rPreviouslyPressed==false)
+
+			if (rPreviouslyPressed==false)
 			{
 				rPreviouslyPressed=true;
 				if (selectedItem==9)
@@ -204,12 +196,12 @@ int main(int argc, char **argv)
 
 		if(controller->isKeyDown(PSP_CTRL_CROSS)) //Check for 'x' press to rotate the individual blocks
 		{
-			printf("'X' pressed\n");
+			//printf("'X' pressed\n");
 			world->changeBlock((int)x, (int)y, (int)z, 0);
 		}
 		if(controller->isKeyDown(PSP_CTRL_CIRCLE)) //Check for circle press to rotate world
 		{
-			printf("'O' pressed\n");
+			//printf("'O' pressed\n");
 			world->changeBlock((int)x, (int)y, (int)z, inventory->getInventory());
 		}
 
@@ -226,7 +218,7 @@ int main(int argc, char **argv)
 
 		if(controller->isKeyDown(PSP_CTRL_TRIANGLE)) //Check for triangle to display inventory
 		{
-			printf("'/\' pressed\n");
+			//printf("'/\' pressed\n");
 			if (trianglePreviouslyPressed==false)
 			{
 				trianglePreviouslyPressed=true;
