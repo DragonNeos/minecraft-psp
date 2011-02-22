@@ -20,6 +20,9 @@ float iconOffsetx = -0.0424;
 float selectedOffsetz = -0.1065;
 float selectedOffset= 0.01072;
 
+int selectedItemx = 3;
+int selectedItemy = 3;
+
 float xTextureOffset = 0.03125;
 float yTextureOffset = 0.03125;
 
@@ -117,6 +120,7 @@ float itemArray[45][3];
 
 		if(displayInventory==true)
 		{
+
 			glBegin(GL_QUADS);
 
 			glColor3f(1, 1, 1);
@@ -129,6 +133,8 @@ float itemArray[45][3];
 
 			glEnd();
 
+			drawSelectedIcon(selectedItemx,selectedItemy);
+
 			for(int i=0; i<5; i++)
 			{
 				for(int j=1; j<10; j++)
@@ -137,7 +143,7 @@ float itemArray[45][3];
 				}
 			}
 
-			drawSelectedIcon(3,3);
+			
 		}
 		
 		//drawing icons
@@ -275,8 +281,8 @@ void Inventory::drawSelectedIcon(int positionx, int positiony)		//Method for dra
 			glColor3f(1, 1, 1);
 
 			glTexCoord2f(0.84375+0.03125, 0.59375);					glVertex3f( -0.040844 + positionx*0.0089528,  iconScaley*0.85+iconOffsety+0.04-positiony*0.0083528, offsetz+0.002); //Top-Right Corner
-			glTexCoord2f(0.84375,			0.59375);					glVertex3f(	-0.048756 + positionx*0.0089528,  iconScaley*0.85+iconOffsety+0.04-positiony*0.0083528, offsetz+0.002); //Top-Left Corner
-			glTexCoord2f(0.84375,			0.59375+0.03125);			glVertex3f(	-0.048756 + positionx*0.0089528, -iconScaley*0.85+iconOffsety+0.04-positiony*0.0083528, offsetz+0.002); //Bottom-Left Corner
+			glTexCoord2f(0.84375,			0.59375);				glVertex3f(	-0.048756 + positionx*0.0089528,  iconScaley*0.85+iconOffsety+0.04-positiony*0.0083528, offsetz+0.002); //Top-Left Corner
+			glTexCoord2f(0.84375,			0.59375+0.03125);		glVertex3f(	-0.048756 + positionx*0.0089528, -iconScaley*0.85+iconOffsety+0.04-positiony*0.0083528, offsetz+0.002); //Bottom-Left Corner
 			glTexCoord2f(0.84375+0.03125, 0.59375+0.03125);			glVertex3f( -0.040844 + positionx*0.0089528, -iconScaley*0.85+iconOffsety+0.04-positiony*0.0083528, offsetz+0.002); //Bottom-Right Corner
 
 			glEnd();
@@ -287,8 +293,8 @@ void Inventory::drawSelectedIcon(int positionx, int positiony)		//Method for dra
 
 			glColor3f(1, 1, 1);
 			glTexCoord2f(0.84375+0.03125, 0.59375);					glVertex3f( -0.040844 + 0.0089528,  iconScaley*0.85+0.045-positionx*0.0083528, offsetz+0.002); //Top-Right Corner
-			glTexCoord2f(0.84375,			0.59375);					glVertex3f(	-0.048756 + 0.0089528,  iconScaley*0.85+0.045-positionx*0.0083528, offsetz+0.002); //Top-Left Corner
-			glTexCoord2f(0.84375,			0.59375+0.03125);			glVertex3f(	-0.048756 + 0.0089528, -iconScaley*0.85+0.045-positionx*0.0083528, offsetz+0.002); //Bottom-Left Corner
+			glTexCoord2f(0.84375,			0.59375);				glVertex3f(	-0.048756 + 0.0089528,  iconScaley*0.85+0.045-positionx*0.0083528, offsetz+0.002); //Top-Left Corner
+			glTexCoord2f(0.84375,			0.59375+0.03125);		glVertex3f(	-0.048756 + 0.0089528, -iconScaley*0.85+0.045-positionx*0.0083528, offsetz+0.002); //Bottom-Left Corner
 			glTexCoord2f(0.84375+0.03125, 0.59375+0.03125);			glVertex3f( -0.040844 + 0.0089528, -iconScaley*0.85+0.045-positionx*0.0083528, offsetz+0.002); //Bottom-Right Corner
 
 			glEnd();
@@ -299,8 +305,8 @@ void Inventory::drawSelectedIcon(int positionx, int positiony)		//Method for dra
 
 			glColor3f(1, 1, 1);
 			glTexCoord2f(0.84375+0.03125, 0.59375);					glVertex3f( -0.040844 + positionx*0.0089528+0.0358112/9,  iconScaley*0.85+0.037-0.0083528, offsetz+0.002); //Top-Right Corner
-			glTexCoord2f(0.84375,			0.59375);					glVertex3f(	-0.048756 + positionx*0.0089528+0.0358112/9,  iconScaley*0.85+0.037-0.0083528, offsetz+0.002); //Top-Left Corner
-			glTexCoord2f(0.84375,			0.59375+0.03125);			glVertex3f(	-0.048756 + positionx*0.0089528+0.0358112/9, -iconScaley*0.85+0.037-0.0083528, offsetz+0.002); //Bottom-Left Corner
+			glTexCoord2f(0.84375,			0.59375);				glVertex3f(	-0.048756 + positionx*0.0089528+0.0358112/9,  iconScaley*0.85+0.037-0.0083528, offsetz+0.002); //Top-Left Corner
+			glTexCoord2f(0.84375,			0.59375+0.03125);		glVertex3f(	-0.048756 + positionx*0.0089528+0.0358112/9, -iconScaley*0.85+0.037-0.0083528, offsetz+0.002); //Bottom-Left Corner
 			glTexCoord2f(0.84375+0.03125, 0.59375+0.03125);			glVertex3f( -0.040844 + positionx*0.0089528+0.0358112/9, -iconScaley*0.85+0.037-0.0083528, offsetz+0.002); //Bottom-Right Corner
 
 			glEnd();
@@ -311,8 +317,8 @@ void Inventory::drawSelectedIcon(int positionx, int positiony)		//Method for dra
 
 			glColor3f(1, 1, 1);
 			glTexCoord2f(0.84375+0.03125, 0.59375);					glVertex3f( -0.040844 + (positionx-2)*0.0089528+0.0358112/9,  iconScaley*0.85+0.037-2*0.0083528, offsetz+0.002); //Top-Right Corner
-			glTexCoord2f(0.84375,			0.59375);					glVertex3f(	-0.048756 + (positionx-2)*0.0089528+0.0358112/9,  iconScaley*0.85+0.037-2*0.0083528, offsetz+0.002); //Top-Left Corner
-			glTexCoord2f(0.84375,			0.59375+0.03125);			glVertex3f(	-0.048756 + (positionx-2)*0.0089528+0.0358112/9, -iconScaley*0.85+0.037-2*0.0083528, offsetz+0.002); //Bottom-Left Corner
+			glTexCoord2f(0.84375,			0.59375);				glVertex3f(	-0.048756 + (positionx-2)*0.0089528+0.0358112/9,  iconScaley*0.85+0.037-2*0.0083528, offsetz+0.002); //Top-Left Corner
+			glTexCoord2f(0.84375,			0.59375+0.03125);		glVertex3f(	-0.048756 + (positionx-2)*0.0089528+0.0358112/9, -iconScaley*0.85+0.037-2*0.0083528, offsetz+0.002); //Bottom-Left Corner
 			glTexCoord2f(0.84375+0.03125, 0.59375+0.03125);			glVertex3f( -0.040844 + (positionx-2)*0.0089528+0.0358112/9, -iconScaley*0.85+0.037-2*0.0083528, offsetz+0.002); //Bottom-Right Corner
 
 			glEnd();
@@ -323,12 +329,52 @@ void Inventory::drawSelectedIcon(int positionx, int positiony)		//Method for dra
 
 			glColor3f(1, 1, 1);
 			glTexCoord2f(0.84375+0.03125, 0.59375);					glVertex3f( -0.040844 + (positionx-1)*0.0089528+0.0358112/7,  iconScaley*0.85+0.037-1.6*0.0083528, offsetz+0.002); //Top-Right Corner
-			glTexCoord2f(0.84375,			0.59375);					glVertex3f(	-0.048756 + (positionx-1)*0.0089528+0.0358112/7,  iconScaley*0.85+0.037-1.6*0.0083528, offsetz+0.002); //Top-Left Corner
-			glTexCoord2f(0.84375,			0.59375+0.03125);			glVertex3f(	-0.048756 + (positionx-1)*0.0089528+0.0358112/7, -iconScaley*0.85+0.037-1.6*0.0083528, offsetz+0.002); //Bottom-Left Corner
+			glTexCoord2f(0.84375,			0.59375);				glVertex3f(	-0.048756 + (positionx-1)*0.0089528+0.0358112/7,  iconScaley*0.85+0.037-1.6*0.0083528, offsetz+0.002); //Top-Left Corner
+			glTexCoord2f(0.84375,			0.59375+0.03125);		glVertex3f(	-0.048756 + (positionx-1)*0.0089528+0.0358112/7, -iconScaley*0.85+0.037-1.6*0.0083528, offsetz+0.002); //Bottom-Left Corner
 			glTexCoord2f(0.84375+0.03125, 0.59375+0.03125);			glVertex3f( -0.040844 + (positionx-1)*0.0089528+0.0358112/7, -iconScaley*0.85+0.037-1.6*0.0083528, offsetz+0.002); //Bottom-Right Corner
 
 			glEnd();
 		}
 	}
+
+int Inventory::getSelectedItemPositionx()
+{
+	return selectedItemx;
+}
+
+int Inventory::getSelectedItemPositiony()
+{
+	return selectedItemy;
+}
+
+void Inventory::setSelectedItem(int x, int y)
+{
+	if(x<=9 && x>0)
+	{
+		selectedItemx = x;
+	}
+	else if (x>9)
+	{
+		selectedItemx=1;
+	}
+	else
+	{
+		selectedItemx=9;
+	}
+
+	if(y<=5 && y>=0)
+	{
+		selectedItemy = y;
+	}
+	else if (y>5)
+	{
+		selectedItemy=0;
+	}
+	else
+	{
+		selectedItemy=5;
+	}
+	
+}
 
 //int	getInventoryNumber();
