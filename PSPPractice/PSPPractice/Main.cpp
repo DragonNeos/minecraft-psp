@@ -87,7 +87,7 @@ int main(int argc, char **argv)
 
 		inventory -> drawInventory(displayInventory);
 
-		display->translate(0, 0, -80); //Push the scene inside of the viewport frustum
+		display->translate(0, 20, -80); //Push the scene inside of the viewport frustum
 
 		//Rotate the world according to the joystick
 		//display->translate(x,y,z);//Move the 'world' around in the view
@@ -100,27 +100,45 @@ int main(int argc, char **argv)
 
 		if(controller->isKeyDown(PSP_CTRL_LEFT)) //Check for left press to move the world
 		{
-			//x -= 4;
-			//if(x < 0)
-			//	x = worldSize;
+
+			if (displayInventory==true)
+			{
+				inventory -> setSelectedItem(inventory ->getSelectedItemPositionx()-1, inventory -> getSelectedItemPositiony());
+			}
+
 		}
 		if(controller->isKeyDown(PSP_CTRL_RIGHT)) //Check for right press to move the world
 		{
-			x += 1;
-			if(x > worldSize-1)
-				x = 0;
+			if (displayInventory==true)
+			{
+				inventory -> setSelectedItem(inventory ->getSelectedItemPositionx()+1, inventory -> getSelectedItemPositiony());
+			}
+			else
+			{
+				x += 1;
+				if(x > worldSize-1)
+					x = 0;
+			}
 		}
 		if(controller->isKeyDown(PSP_CTRL_DOWN)) //Check for down press to move the world
 		{
-			//y -= 4;
-			//if(y < 0)
-			//	y = worldSize;
+			if (displayInventory==true)
+			{
+				inventory -> setSelectedItem(inventory ->getSelectedItemPositionx(), inventory -> getSelectedItemPositiony()+1);
+			}
 		}
 		if(controller->isKeyDown(PSP_CTRL_UP)) //Check for up press to move the world
 		{
+			if (displayInventory==true)
+			{
+				inventory -> setSelectedItem(inventory ->getSelectedItemPositionx(), inventory -> getSelectedItemPositiony()-1);
+			}
+			else
+			{
 			y += 1;
 			if(y > worldSize-1)
 				y = 0;
+			}
 		}
 
 		//Joystick controls

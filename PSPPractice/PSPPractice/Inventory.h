@@ -19,6 +19,10 @@ public:
 	int getInventory();
 	void setInventoryNumber(int inventoryPosition);
 	int getInventoryNumber();
+	int getSelectedItemPositionx();
+	int getSelectedItemPositiony();
+	void setSelectedItem(int x, int y);
+
 
 };
 
