@@ -4,6 +4,7 @@
 
 #include <stdlib.h> //Header File for standard library
 #include "World.h"  //Header File for 'World' class
+#include "GLLib.h"
 
 World::World() //Default/Empty Constructor
 {
@@ -31,8 +32,8 @@ void World::initialiseWorld(int worldLimit, int blockSide, short *&blockID) //In
 		{
 			for(int k = 0, x = 0; k < worldSize; k ++, x+=blockSize, blockNumber++)
 			{
-				world[i][j][k].createBlock(blockID[blockNumber]); //Create the block based off it's type ID	
 				world[i][j][k].initialise(blockSize, blockSize, blockSize); //Instantiate a new object and assign it via dynamic memory allocation
+				world[i][j][k].createBlock(blockID[blockNumber]); //Create the block based off it's type ID					
 				world[i][j][k].position->set(x, y, z); //Position the cubes apart from each other in order of theyre relative co-ordinates in the array
 			}
 		}
@@ -63,7 +64,7 @@ void World::draw(float rotation, float xR, float yR, float zR) //Draw function o
 		}
 }
 
-void World::draw() //Draw function of the entire world
+void World::draw(GLbyte* indices) //Draw function of the entire world
 {
 		for(int x = 0; x < worldSize; x++)
 		{
@@ -71,7 +72,7 @@ void World::draw() //Draw function of the entire world
 			{
 				for(int z = 0; z < worldSize; z ++)
 				{
-					world[x][y][z].draw();// Draw the 'World' array of cubes
+					world[x][y][z].draw(indices);// Draw the 'World' array of cubes
 				}
 			}
 		}

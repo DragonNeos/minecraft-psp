@@ -7,6 +7,7 @@
 
 #include <stdlib.h> // Header file for standard library
 #include "Vector.h" //Header file for Vector class
+#include "GLLib.h"
 #define TEXTURE_INTERVAL 0.03125f
 
 enum Block
@@ -50,12 +51,13 @@ class Cube
 		void initialise(float width, float height, float depth); //Method allowing dimension changes
 		void createBlock(short block); //Initialise the block type and set the tex-coord's for the texture
 		short returnBlockType(); //returns the block type ID
-		void draw(); //draw shape with translations
+		void draw(GLbyte*& indices); //draw shape with translations
 		void draw(float rotation, float x, float y, float z); //draw shape with rotations applied
 
 		~Cube(); //default destructor
 	
 	private:
+		GLfloat* tex;
 		void render(); //render the actual shape
 };
 

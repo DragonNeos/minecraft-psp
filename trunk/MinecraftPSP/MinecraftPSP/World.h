@@ -18,7 +18,7 @@ class World
 		void initialiseWorld(int worldLimit, int blockSide, short *&blockID); //Initialise the world with various limits and reference to block information
 		short returnBlock(int x, int y, int z); //Returns the block type at the indicated position(For collision detection purposes)
 		void changeBlock(int x, int y, int z, short blockType); //Used to change the blocks selected(Either for destruction of/creation of blocks)
-		void draw(); //Draw the world without any rotations on the individual blocks
+		void draw(GLbyte* indices); //Draw the world without any rotations on the individual blocks
 		void draw(float rotation, float xR, float yR, float zR); //Draw the world with individual rotations on blocks
 };
 
