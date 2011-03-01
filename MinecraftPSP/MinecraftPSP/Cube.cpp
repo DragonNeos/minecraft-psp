@@ -3,12 +3,13 @@
 // Modifications: All modifications are documented via Repository on google-code page
 
 #include <stdlib.h> //Header file for standard library
+#include <stdio.h>			// Header file for file IO
 #include "GLLib.h" //Header file for OpenGL library
 #include "Cube.h" //Header file for 'Cube' class
 #include "Vector.h" //Header file for Vector math class
 
 Cube::Cube() //Default/Empty constructor
-{
+{	
 }
 
 void Cube::initialise()
@@ -16,6 +17,7 @@ void Cube::initialise()
 	r = 1, b = 1, g = 1;
 	this->position = new Vector();
 	this->size = new Vector(8,8,8);
+	tex = new GLfloat[48];
 }
 
 void Cube::initialise(float width, float height, float depth)
@@ -23,6 +25,7 @@ void Cube::initialise(float width, float height, float depth)
 	r = 1, b = 1, g = 1;
 	this->position = new Vector();
 	this->size = new Vector(width, height, depth);
+	tex = new GLfloat[48];
 }
 
 short Cube::returnBlockType()
@@ -32,8 +35,6 @@ short Cube::returnBlockType()
 
 void Cube::createBlock(short block)
 {
-	
-
 	switch(block)
 	{
 		case DIRT:
@@ -308,6 +309,64 @@ void Cube::createBlock(short block)
 			bottomFace.upperY = TEXTURE_INTERVAL*3.0f;
 			break;
 	}
+	printf("Starting Texture mapping\n");
+	for(int i = 0, k = 0; i < 48; i++, k++)
+	{
+		printf("inside for loop\n");
+		if(k > 7)
+		{
+			k = 0;
+		}
+		printf("current tex axis checked\n");
+		if(i < 32)
+		{
+			printf("inside side faces\n");
+			switch(k)
+			{
+				case 0: tex[i] = sideFace.upperX; break;
+				case 1: tex[i] = sideFace.lowerY; break;
+				case 2: tex[i] = sideFace.lowerX; break;
+				case 3: tex[i] = sideFace.lowerY; break;
+				case 4: tex[i] = sideFace.lowerX; break;
+				case 5: tex[i] = sideFace.upperY; break;
+				case 6: tex[i] = sideFace.upperX; break;
+				case 7: tex[i] = sideFace.upperY; break;
+			}
+			printf("exiting side faces\n");
+		}
+		if(i > 31 && i < 40)
+		{
+			printf("inside top faces\n");
+			switch(k)
+			{
+				case 0: tex[i] = topFace.upperX; break;
+				case 1: tex[i] = topFace.lowerY; break;
+				case 2: tex[i] = topFace.lowerX; break;
+				case 3: tex[i] = topFace.lowerY; break;
+				case 4: tex[i] = topFace.lowerX; break;
+				case 5: tex[i] = topFace.upperY; break;
+				case 6: tex[i] = topFace.upperX; break;
+				case 7: tex[i] = topFace.upperY; break;
+			}
+			printf("exiting top faces\n");
+		}
+		if(i > 40)
+		{
+			printf("inside bottom faces\n");
+			switch(k)
+			{
+				case 0: tex[i] = bottomFace.upperX; break;
+				case 1: tex[i] = bottomFace.lowerY; break;
+				case 2: tex[i] = bottomFace.lowerX; break;
+				case 3: tex[i] = bottomFace.lowerY; break;
+				case 4: tex[i] = bottomFace.lowerX; break;
+				case 5: tex[i] = bottomFace.upperY; break;
+				case 6: tex[i] = bottomFace.upperX; break;
+				case 7: tex[i] = bottomFace.upperY; break;
+			}
+			printf("exiting bottom faces\n");
+		}
+	}
 }
 
 
@@ -386,12 +445,14 @@ void Cube::render() //Renders the shape
 	glEnd();
 }
 
-void Cube::draw() //Draws the shape with translations
+void Cube::draw(GLbyte*& indices) //Draws the shape with translations
 {
 	glPushMatrix();
 	glTranslatef(position->x, position->y, position->z);
+	glTexCoordPointer(2 ,GL_FLOAT, 0, tex);
+	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_BYTE, indices);
 	//texture->bindTexture();
-	render();
+	//render();
 
 	glPopMatrix();
 }

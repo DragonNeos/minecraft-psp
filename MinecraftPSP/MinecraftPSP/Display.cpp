@@ -27,8 +27,9 @@ void Display::initialise() // Initialisation method which creates the frustum(Ho
 	glClearColor(0,0,0,0);
 	glClearDepth(1.0f);
 
-	glDepthFunc(GL_LESS);
 	glEnable(GL_DEPTH_TEST);
+	//glDepthFunc(GL_LESS);
+	
 
 	//viewport usage has not been working but program runs already with a default viewport
 	glViewport(0, 0, width, height);

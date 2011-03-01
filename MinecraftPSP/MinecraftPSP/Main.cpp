@@ -32,8 +32,8 @@ int main(int argc, char **argv)
 
 	float x = 0,y = 0, z = 0, worldR = 0; //Position variables of the cube
 	float yRotation = 0, xRotation = 0;	//Rotation amounts for each axis
-
-	worldSize = 6; //Size of the WorldArray in terms of amount of blocks per Dimension
+	
+	worldSize = 10; //Size of the WorldArray in terms of amount of blocks per Dimension
 	blockSize = 4; //Size of blocks dimension(x,y,z)
 	blockNumber = 0;
 	WorldManager worldManager;
@@ -44,6 +44,30 @@ int main(int argc, char **argv)
 	bool rPreviouslyPressed = false;
 	bool lPreviouslyPressed = false;
 
+	GLfloat vertices[] = {blockSize,0,0,
+						blockSize,blockSize,0,
+						0,0,0,
+						0,blockSize,0,
+						0,0,-blockSize,
+						0,blockSize,-blockSize,
+						blockSize,0,-blockSize,
+						blockSize,blockSize,-blockSize
+						};
+
+	GLbyte indices[] = {3,5,2,
+						0,1,2,
+						2,1,3,					
+						2,5,4,
+						5,7,6,
+						6,4,5,
+						7,0,6,
+						0,7,1,
+						5,3,1,
+						1,7,5,
+						2,4,0,
+						0,4,6
+						};
+
 	Display *display = new Display();			//Instantiate the graphics class via dynamic memory allocation
 	Controller *controller = new Controller();  //Instantiate the controls class via dynamic memory allocation
 	world = new World();						//Instantiate the World class via dynamic memory allocation
@@ -51,8 +75,8 @@ int main(int argc, char **argv)
 	display->initialise();	 //Initialises all OpenGL requirements and creates a viewport
 	display->enableTextures(); //Enable Texturing
 	display->enableTransparency(); //Enable basic transperancy
-	//display->enableCulling();
-	//display->cullBack();
+	display->enableCulling();
+	display->cullBack();
 	
 	worldTexture = new Texture(); //Instantiate Textures of the world
 	
@@ -76,7 +100,12 @@ int main(int argc, char **argv)
 
 	world->initialiseWorld(worldSize, blockSize, worldManager.blockID); // Startup and populate the world with reference to the saveFiles 'blockID' Array
 
-	worldTexture->bindTexture(); //Bind all the world's textures to every object after this line (Binding is no longer repeated and no overhead occurs)
+	//worldTexture->bindTexture(); //Bind all the world's textures to every object after this line (Binding is no longer repeated and no overhead occurs)
+
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+
+	glVertexPointer(3, GL_FLOAT, 0, vertices);
 
 	while(1)
 	{
@@ -84,9 +113,9 @@ int main(int argc, char **argv)
 
 		display->clearBuffers(); //Clear screen and depth buffer
 		display->resetOrigin(); //Reset the co-ordinate origin
-
+		//glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 		inventory -> drawInventory(displayInventory);
-
+		//glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 		display->translate(0, 20, -80); //Push the scene inside of the viewport frustum
 
 		//Rotate the world according to the joystick
@@ -263,7 +292,7 @@ int main(int argc, char **argv)
 		
 		display->rotate(worldR,0,1,0);//rotate the world around to see around it
 
-		world->draw(); //Draw the world
+		world->draw(indices); //Draw the world
 
 		display->update(); //Update the display buffer(i.e. swap the buffer)
 	}

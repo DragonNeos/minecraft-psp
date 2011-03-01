@@ -34,12 +34,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <NMakeBuildCommandLine>vsmake &amp;&amp; copy EBOOT.PBP G:\PSP\GAME\MinecraftPSP</NMakeBuildCommandLine>
+    <NMakeBuildCommandLine>vsmake &amp;&amp; copy EBOOT.PBP E:\PSP\GAME\MinecraftPSP</NMakeBuildCommandLine>
     <NMakeOutput>EBOOT.PBP</NMakeOutput>
     <NMakeCleanCommandLine>vsmake clean</NMakeCleanCommandLine>
-    <NMakeReBuildCommandLine>vsmake clean &amp;&amp; vsmake &amp;&amp; copy EBOOT.PBP G:\PSP\GAME\MinecraftPSP</NMakeReBuildCommandLine>
+    <NMakeReBuildCommandLine>vsmake clean &amp;&amp; vsmake &amp;&amp; copy EBOOT.PBP E:\PSP\GAME\MinecraftPSP</NMakeReBuildCommandLine>
     <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <NMakeIncludeSearchPath>C:\pspsdk\psp\sdk\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>C:\pspsdk\psp\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakeBuildCommandLine>vsmake build</NMakeBuildCommandLine>
